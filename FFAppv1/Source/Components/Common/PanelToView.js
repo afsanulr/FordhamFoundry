@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight,Animated, LayoutAnimation} from 'react-native';
+import {StyleSheet,Text,View,Image,TouchableHighlight, Animated, LayoutAnimation} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
 class PanelToView extends Component{

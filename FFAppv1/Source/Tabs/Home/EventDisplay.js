@@ -22,7 +22,7 @@ const EventDisplay = ({title, location, date, time,
                       alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe}) => {
 
   return (
-      <Card justifyContent = "center">
+    
         <View style = {styles.container}>
         <View>
           {title!==null ? <Text style = {styles.titleStyle}>{title}</Text> : <Text style = {styles.titleStyle}>The title is not specified</Text>}
@@ -34,10 +34,10 @@ const EventDisplay = ({title, location, date, time,
           </View>
           {time!==null ? <Text style = {styles.whenStyle}>{time}</Text> : <Text style = {styles.whenStyle}>The time is not specified</Text>}
         </View>
-        </View>
         {renderAddToCalender(title, date, time, location, 
                           alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe)}
-      </Card>
+        </View>
+      
   )
 }
 
@@ -45,6 +45,8 @@ const styles = StyleSheet.create ({
   container: {
     padding: 5,
     alignItems: 'center',
+    justifyContent: 'center',
+    borderBottomWidth: StyleSheet.hairlineWidth
     //justifyContent: 'center'
     //backgroundColor: "#"
   },

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, ListView, StyleSheet, View, ScrollView, TouchableOpacity, TouchableWithoutFeedback} from 'react-native';
+import {Text, ListView, StyleSheet, View, ScrollView, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
 import {connect} from 'react-redux';
 import {fetchJobs, jobDelete} from '../../Actions';
 import JobForm from './JobForm';
@@ -10,7 +10,7 @@ import JobListItem from './JobListItem';
 import JobSection from './JobSection';
 import JobCreate from './JobCreate';
 import {JobDisplay} from './JobDisplay';
-import {Card, CardSection, Button, ButtonCont, Confirm, CSCol} from '../../Components/Common';
+import {Card, Button, CardSection, ButtonCont, Confirm, CSCol} from '../../Components/Common';
 import ViewContainer from '../../Components/Common/ViewContainer';
 
 class JobList extends Component {
@@ -89,32 +89,53 @@ class JobList extends Component {
 		return <ScrollView>{rows}</ScrollView>
 	}
 
+	checkIf() {
+		if(this.props.jb === null)
+		{	
+			if(this.state.showDesModal === true)
+			{	
+				{this.onReturn()}
+			}
+			return (
+				<View alignItems = "center">
+					<Text> No Jobs Posted </Text>
+				</View>
+			);
+		}
+		else {
+			return (
+				this.fetchJobBoard()
+			);
+		}
+	}
 
 	render() {
-
+		
 		return(
-			<View>
+			<View flex = {1} backgroundColor = "white">
 				<View  alignItems = "center" paddingBottom = {5} borderBottomWidth = {StyleSheet.hairlineWidth}>
-					<Button onPress={this.renderModal.bind(this)}>
-					Post to the Job Board!
+					<Button onPress = {() => this.props.wayto.navigate('JCForm')}>
+						Post to the Job Board!
 					</Button>
 				</View>
-			{this.fetchJobBoard()}
 			
-			<Confirm
-        visible={this.state.showModal}
-        onReturn={this.onReturn.bind(this)}
-			>
+				{this.checkIf()}
+
 			
-				<JobCreate style={{flex:1}}/>
+				
 			
-			</Confirm>
 
 			<Confirm 
 				visible={this.state.showDesModal}
 				onReturn={this.onReturn.bind(this)}
 			>
-					<JobDisplay jobBoard={this.props.jb} jobKey={this.state.curKey} canDelete={this.state.canDelete} jobDelete={this.props.jobDelete} />
+					<JobDisplay 
+						visible={this.state.showDesModal}
+						onReturn={this.onReturn.bind(this)}
+						jobBoard={this.props.jb} 
+						jobKey={this.state.curKey} 
+						canDelete={this.state.canDelete} 
+						jobDelete={this.props.jobDelete}/> 
 			</Confirm>
 			
 

@@ -19,13 +19,13 @@ const styles = {
   container: {
     flexDirection: 'row',
     //paddingTop: 5,
-    paddingRight: 275,
+    //paddingRight: 275,
     marginBottom: 10,
   },
   textStyle: {
     alignSelf: 'center',
     color: 'white',
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: '600',
     padding: 8
   },
@@ -34,7 +34,8 @@ const styles = {
     //alignSelf: 'stretch',
     backgroundColor: '#0981CC',
     borderRadius: 5,
-    
+    height: 32,
+    width: 50,
     borderColor: 'black',
     
   }

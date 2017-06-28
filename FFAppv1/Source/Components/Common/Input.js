@@ -1,14 +1,11 @@
 import React from 'react';
-import {TextInput, View, Text, StyleSheet} from 'react-native';
+import {TextInput, View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
 
-const Input = ({label, value, onChangeText, placeholder, secureText, multiline, height}) => {
+const Input = ({label, value, onChangeText, placeholder, secureText, multiline, height, maxLength}) => {
 	const {inputStyle, labelStyle, containerStyle} = styles
 
 	return (
 		<View style = {containerStyle}>
-			
-			<Text style = {labelStyle}>{label}</Text>
-		
 			<TextInput
 				autoCapitalize = 'none'
 				secureTextEntry = {secureText}
@@ -19,8 +16,9 @@ const Input = ({label, value, onChangeText, placeholder, secureText, multiline, 
 				onChangeText = {onChangeText}
 				multiline = {multiline || false}
 				height = {height || 30}
+				maxLength = {maxLength || 20}
+
 			/>
-			
 		</View>
 		);
 };
@@ -28,16 +26,16 @@ const Input = ({label, value, onChangeText, placeholder, secureText, multiline, 
 const styles = {
 	containerStyle: {
 		flex: 1,
-		flexDirection: 'column',
+		
 		height: undefined,
-		marginBottom: 5
+		marginBottom: 3
 		//alignItems: 'center'
 	},
 	inputStyle: {
 		//height: 20,
 		color: '#000',
 		paddingRight: 5,
-		width: 380,
+		width: 290,
 		//height: 30,
 		fontSize: 18,
 		//lineHeight: 23,
@@ -48,7 +46,7 @@ const styles = {
 	},
 	labelStyle: {
 		//flex: 1,
-		fontSize: 18,
+		fontSize: 16,
 		paddingBottom: 5,
 		fontWeight: 'bold',
 		fontFamily: "GillSans-Light"

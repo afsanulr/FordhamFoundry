@@ -8,8 +8,8 @@ import Jobscreen from '../Tabs/Jobs/Jobscreen';
 import Bubblescreen from '../Tabs/Bubble/Bubblescreen';
 import FFBusscreen from '../Tabs/Bubble/FFBusscreen';
 import DandMscreen from '../Tabs/DandM/DandMscreen';
-//import Chatscreen from '../Tabs/Chat/Chatscreen';
 import LoginScreen from '../Tabs/Login/LoginScreen';
+import JobCreate from './Jobs/JobCreate';
 
 export const FFBusStack = StackNavigator ({
 	Bubble: {
@@ -51,8 +51,48 @@ export const FFBusStack = StackNavigator ({
   		}
 	}     		    		
 
-})
+});
 
+export const JobStack = StackNavigator ({
+	Jobs: {
+		screen: Jobscreen,
+		navigationOptions: {
+			headerTitle: <Image source = {require('../../Images/foundry-logo-top-bar.png')} 
+				style = {{height:40, width: 150, marginBottom: 20}}/>,
+			headerStyle: {
+       			backgroundColor: '#f7f7f8',
+       			elevation: null
+       		},
+       		headerTitleStyle: {
+  				fontSize: 20	
+  			},
+  			headerBackStyle: {
+  				color: 'red'
+  			}
+  		},
+  	},
+
+  	JCForm: {
+  		screen: JobCreate,
+		navigationOptions: {
+			headerTitle: <Image source = {require('../../Images/foundry-logo-top-bar.png')} 
+				style = {{height:40, width: 150, marginBottom: 20}}/>,
+			headerStyle: {
+       			backgroundColor: '#f7f7f8',
+       			elevation: null
+       		},
+       		headerTitleStyle: {
+       			width: 214,
+  				fontSize: 20,
+  				fontFamily: 'GillSans',
+  				color: 'black',
+  				paddingBottom: 20
+  			},
+  			headerTintColor: 'maroon'
+  		}
+  	}
+  	
+});
 
 export const Tabs = TabNavigator ({
 
@@ -65,7 +105,7 @@ export const Tabs = TabNavigator ({
 		},
 
 	Jobs: {
-		screen: Jobscreen,
+		screen: JobStack,
 		navigationOptions: {
 			tabBarLabel: 'Jobs',
 			tabBarIcon: ({tintColor, focused}) => <Icon name = {focused ? "ios-briefcase":"ios-briefcase-outline"} size = {32} color = {focused? "darkred":"black"}/>
@@ -96,7 +136,7 @@ export const Tabs = TabNavigator ({
 			tabBarIcon: ({tintColor, focused}) => <Icon name  = {focused ? "ios-lock": "ios-lock-outline"} size = {34} color = {focused? "darkred":"black"}/>
 			
 		}
-	},
+	}
 
 },
 

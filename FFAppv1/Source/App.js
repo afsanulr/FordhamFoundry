@@ -12,7 +12,7 @@ import NavBar from './Components/Header/NavBar';
 import {Tabs} from './Tabs/Router';
 import ViewContainer from './Components/Common/ViewContainer';
 import {Scene} from 'react-native-router-flux'
-import LoginForm from './Components/LoginForm'
+import LoginForm from './Tabs/Login/LoginForm'
 //import LibraryList from './Components/LibraryList';
 
 class App extends Component {
@@ -20,13 +20,14 @@ class App extends Component {
 	componentWillMount(){
 		//Initiliaze Firebase
 		var config = {
-			apiKey: "AIzaSyDHdHiujKrk5nTQGFFhbXwoU_hb0cCugbk",
-			authDomain: "project-feed1.firebaseapp.com",
-			databaseURL: "https://project-feed1.firebaseio.com",
-			projectId: "project-feed1",
-			storageBucket: "project-feed1.appspot.com",
-			messagingSenderId: "135840274447"
+			apiKey: "AIzaSyBckA3a7DZXRwk_QRMxB4KtrM11XXnJiLE",
+      		authDomain: "fordhamfoundryapp-bcee9.firebaseapp.com",
+      		databaseURL: "https://fordhamfoundryapp-bcee9.firebaseio.com",
+      		projectId: "fordhamfoundryapp-bcee9",
+      		storageBucket: "fordhamfoundryapp-bcee9.appspot.com",
+      		messagingSenderId: "352855041318"
 		};
+		
   	firebase.initializeApp(config)
 	}
 
