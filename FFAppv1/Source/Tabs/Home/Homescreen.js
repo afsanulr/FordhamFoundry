@@ -16,7 +16,7 @@ class Homescreen extends Component {
 			<ViewContainer> 
 			<NavBar/>
 
-			<ScrollableTabView tabBarTextStyle = {{fontSize: 20, fontFamily: 'GillSans'}}>
+			<ScrollableTabView tabBarTextStyle = {{paddingTop:10, fontSize: 20, fontFamily: 'GillSans'}}>
 				<UpdateList tabLabel = "Updates"/>
 				<EventList tabLabel = "Events"/>
 			</ScrollableTabView>

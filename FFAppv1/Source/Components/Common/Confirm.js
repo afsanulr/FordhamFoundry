@@ -1,17 +1,18 @@
 import React from 'react'
-import {Text, View, Modal, TouchableWithoutFeedback} from 'react-native'
+import {KeyboardAvoidingView, Text, Modal, View, TouchableWithoutFeedback} from 'react-native'
 import {CardSection} from './CardSection'
 import {Button} from './Button'
 
-const Confirm = ({children,visible,onReturn}) => {
+const Confirm = ({children,visible,onReturn, position}) => {
   const {containerStyle,textStyle,cardSectionStyle} = styles
   return(
-    
+    <KeyboardAvoidingView behavior = {'position'}>
     <Modal
-      animationType="slide"
+      animationType="fade"
       onRequestClose={ ()=>{} }
       transparent
       visible={visible}
+      position = {position}
     >
     <TouchableWithoutFeedback onPress = {onReturn}>
     
@@ -24,11 +25,13 @@ const Confirm = ({children,visible,onReturn}) => {
           </View>
           </TouchableWithoutFeedback>
         </CardSection>
-        
       </View>
+      
 
       </TouchableWithoutFeedback>
     </Modal>
+    </KeyboardAvoidingView>
+
   )
 }
 

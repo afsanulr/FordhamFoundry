@@ -4,11 +4,22 @@ import {connect} from 'react-redux';
 
 import {CardSection, Button, ButtonCont, LinkButton, DeleteButton} from '../../Components/Common';
 
-const renderButton = (canDelete, jobKey, jobDelete) => {    
+const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {  
+  
+  closeModal = (jobKey) => {
+    if(visible === true)
+    {
+      console.log("hello")
+      {onReturn}
+      console.log("goodbye")
+    }
+    jobDelete(jobKey);
+  }
+
   if(canDelete)
     return(
       <View borderTopWidth = {StyleSheet.hairlineWidth}>
-        <DeleteButton onPress={() => { jobDelete(jobKey) }}>
+        <DeleteButton onPress={() => {closeModal(jobKey)}}>
           Delete
         </DeleteButton>
       </View>
@@ -33,8 +44,14 @@ const showButton = (jobBoard, jobKey) =>
 }
     
 
-const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete}) => {
-  return (
+const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete, onReturn, visible}) => {
+
+  if(jobBoard === null)
+  {
+    return null
+  }
+  else {
+    return (
     <View>
         <View style = {styles.titleandname}>
         {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.titleStyle}>{`${jobBoard[jobKey].title}`}</Text>:<Text></Text>}
@@ -49,10 +66,11 @@ const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete}) => {
         {showButton(jobBoard, jobKey)}
         
 
-      {canDelete ? renderButton(canDelete, jobKey, jobDelete):<Text></Text>}
+      {canDelete ? renderButton(canDelete, jobKey, jobDelete, onReturn, visible):<Text></Text>}
 
     </View>
-  )
+    );
+  }
 }
 
 const styles = {
@@ -68,16 +86,17 @@ const styles = {
     marginBottom: 20
   },
 	textStyle: {
-		fontSize: 16,
+		fontSize: 12,
 		fontWeight: 'bold'
 	},
   titleStyle: {
-    fontSize: 30,
+    fontSize: 18,
     fontWeight: 'bold',
-    fontFamily: 'GillSans'
+    fontFamily: 'GillSans',
+    paddingBottom: 2
   },
   nameStyle: {
-    fontSize: 20,
+    fontSize: 14,
     fontFamily: 'GillSans-Light'
   },
   descStyle: {

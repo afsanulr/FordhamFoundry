@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Text, View, TouchableWithoutFeedback} from 'react-native';
+import {Text, View, ScrollView, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView} from 'react-native';
 import firebase from 'firebase';
 import {jobUpdate, jobCreate, fetchJobs} from '../../Actions';
 import {Card, CardSection, Button, Confirm} from '../../Components/Common';
@@ -34,6 +34,7 @@ class JobCreate extends Component {
         link: link || '',
         user: currentUser.uid || null,
       })
+      
     }else{
       this.setState({showModal: true})
     }
@@ -46,16 +47,19 @@ class JobCreate extends Component {
 
   render(){
     return (
-      <View>
       
+        <View flex = {1} backgroundColor = "white">
+        <View alignItems = "center">
         <JobForm {...this.props}/>
-      
-          <View paddingTop = {15} alignItems = "center">
+        </View>
+        <View alignItems = "center">
           <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
-          </View>
-      </View>
+        </View>
+        
+        </View>
+      
     )
   }
 }
@@ -63,7 +67,7 @@ class JobCreate extends Component {
 const styles = {
   modalTextStyle:{
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontWeight: '300',
     fontSize: 24
   }
 }

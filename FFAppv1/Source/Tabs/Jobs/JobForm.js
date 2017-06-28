@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, Picker} from 'react-native';
+import {View, Text, Keyboard, Picker, KeyboardAvoidingView, TouchableWithoutFeedback} from 'react-native';
 import {CardSection, Input} from '../../Components/Common';
 import {connect} from 'react-redux';
 import {jobUpdate} from '../../Actions';
@@ -7,20 +7,22 @@ import {jobUpdate} from '../../Actions';
 class JobForm extends Component{
   render(){
     return (
-      <View flexDirection = "column">
+      <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
+      <View alignItems = "center" flexDirection = "column" marginTop = {10} marginBottom = {20} backgroundColor = "white">
           <View style = {styles.containerStyle}>
           <Input 
             label="Job Title"
-            placeholder="Title/Position"
+            placeholder="Job Title/Position"
             value={this.props.title}
             onChangeText={text => this.props.jobUpdate({prop: 'title', value: text})}
+            maxLength = {50}
           />
           </View>
         
           <View style = {styles.containerStyle}>
           <Input 
             label="Business/Name:"
-            placeholder="user@user.com"
+            placeholder="Business/Name"
             value={this.props.name}
             onChangeText={text => this.props.jobUpdate({prop: 'name', value: text})}
           />
@@ -29,45 +31,42 @@ class JobForm extends Component{
           <View style = {styles.containerStyle}>
           <Input 
             label="Description:"
-            placeholder="Lookin' for..."
+            placeholder="Description: Lookin' for..."
             value={this.props.description}
             onChangeText={text => this.props.jobUpdate({prop: 'description', value: text})}
             multiline = {true}
             height = {80}
+            maxLength = {550}
           />
           </View>
-
           <View style = {styles.containerStyle}>
           <Input 
             label="Contact:"
-            placeholder="user@user.com"
+            placeholder="Contact: Fordham Foundry"
             value={this.props.contact}
             onChangeText={text => this.props.jobUpdate({prop: 'contact', value: text})}
           />
           </View>
-
           <View style = {styles.containerStyle}>
           <Input 
             label="Link:"
-            placeholder="http://..."
+            placeholder="Link: http://..."
             value={this.props.link}
             onChangeText={text => this.props.jobUpdate({prop: 'link', value: text})}
           />
           </View>
       </View>
+      
+      </TouchableWithoutFeedback>
     )
   }
 }
 
 const styles = ({
   containerStyle: {
-    //borderBottomWidth: 2,
-    //padding: 10,
     flexDirection: 'row',
-    /*backgroundColor: '#fff',
-    //justifyContent: 'space-around',
-    borderColor: 'black',
-    position: 'relative',*/
+    
+    marginBottom: 10
   },
   pickerTextStyle:{
     fontSize: 18,

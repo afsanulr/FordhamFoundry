@@ -10,14 +10,14 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IonIcon from 'react-native-vector-icons/Ionicons'; 
 import ImageSlider from 'react-native-image-slider';
 
-
 class HomeScreen extends Component {
 	constructor (props){
 		super(props);
 
 		this.state = { 
 			position: 0,
-			interval: null 
+			interval: null,
+			images: []
 		};
 	}
 
@@ -25,24 +25,25 @@ class HomeScreen extends Component {
 		this.setState({interval: setInterval(() => {
 			this.setState({position: this.state.position === 3 ? 0 : this.state.position +1});
 		}, 6000)});
+
+		var array = [require('../../../Images/slide2.png'),
+					require('../../../Images/slide1.png'),
+					require('../../../Images/slide3.png'),
+					require('../../../Images/slide4.png')]
+		this.setState({images: array})
 	}
 
 	componentWillUnmount(){
 		clearInterval(this.state.interval)
 	}
 
-
 	render () {
 		return (
 			<ViewContainer>
 			<ScrollView style = {styles.container}>
 			<ImageSlider 
-				images = {[
-					require('../../../Images/slide2.png'),
-					require('../../../Images/slide1.png'),
-					require('../../../Images/slide3.png'),
-					require('../../../Images/slide4.png')
-					]}
+					height = {180}
+					images = {this.state.images}
 					position = {this.state.position}
 					onPositionChanged = { position => this.setState({position})}/>
 			<Panel title = "What is the Foundry?">
