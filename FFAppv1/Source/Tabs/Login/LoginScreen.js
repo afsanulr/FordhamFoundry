@@ -9,6 +9,7 @@ import NavBar from '../../Components/Header/NavBar';
 import ViewContainer from '../../Components/Common/ViewContainer';
 import {Card, CardSection, Button, ButtonCont} from '../../Components/Common';
 
+import Logoutscreen from './Logoutscreen';
 
 class LoginScreen extends Component {
 
@@ -39,14 +40,14 @@ class LoginScreen extends Component {
                   }}/>
             </View>
 
-              <View>
+            <View>
               <Text style = {styles.headTextStyle}>
                 {firebase.auth().currentUser.email}
               </Text>
-             </View>
-             <View alignItems = "center">
-              <Button onPress={(this.onLogOut.bind(this))}> Log out </Button>
-              </View>
+            </View>
+            <View alignItems = "center">
+              <Logoutscreen logoutFunc = {this.onLogOut.bind(this)}/>
+            </View>
           </View>
         )
       default:
@@ -57,7 +58,6 @@ class LoginScreen extends Component {
   render(){
     return (
     	<ViewContainer>
-			
       		{this.renderContent()}
       	</ViewContainer>
     )

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, TouchableOpacity, Linking} from 'react-native';
+import call from 'react-native-phone-call';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import FontIcon from 'react-native-vector-icons/FontAwesome';
 import MatIcon from 'react-native-vector-icons/MaterialIcons';

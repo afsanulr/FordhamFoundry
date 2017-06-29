@@ -9,7 +9,8 @@ const INITIAL_STATE = {
   date: '',
   error: '',
   link: '',
-  jb: {}
+  jb: {},
+  loading: true
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -21,7 +22,7 @@ export default (state = INITIAL_STATE, action) => {
       return {...state, name:'', contact:'', description: '', title: '', user: '', date: '', link: '', jb: action.payload}
     case JOBS_FETCH_SUCCESS:
     console.log("job fetch success" + action.payload)
-      return {...state, jb: action.payload}
+      return {...state, jb: action.payload, loading: false}
     case JOB_DELETE:
       return {...state, jb: action.payload}
     default:

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet,Text,View,Image,TouchableHighlight, TouchableOpacity, Animated, LayoutAnimation, Linking} from 'react-native';
-import SimpleIcon from 'react-native-vector-icons/SimpleLineIcons';
+import IonIcon from 'react-native-vector-icons/Ionicons';
 
 var arrofImages = [
     require('../../../Images/brevite.jpg'),
@@ -8,15 +8,17 @@ var arrofImages = [
     require('../../../Images/pathoslogo.png'),
     require('../../../Images/radiate.jpg'),
     require('../../../Images/redplanet.jpg'),
+    require('../../../Images/spirecobox.jpg'),
     require('../../../Images/ventir.png')
 ];
 
 var arrofWeb = [
   "https://brevite.co",
   "http://kindmind.io",
-  "https://google.com",
+  "",
   "http://www.radiatemarket.com",
-  "https://google.com",
+  "",
+  "https://spireand.co",
   "http://www.ventircreates.com"
 ];
 
@@ -73,6 +75,24 @@ class FFBusPanel extends Component{
         }
     }
 
+    renderButton() {
+        if(arrofWeb[this.state.FFBusid] === '')
+        {
+            return (
+                <View width = {50}/>
+            );
+        }
+        else {
+            return (
+                <View style={styles.iconCont}>
+                    <TouchableOpacity onPress = {() => Linking.openURL(arrofWeb[this.state.FFBusid])}>
+                    <IonIcon name = "md-globe" size = {40}/>
+                    </TouchableOpacity>
+                </View>
+            );
+        }
+    }
+
 
     render(){
         return ( 
@@ -80,22 +100,22 @@ class FFBusPanel extends Component{
                         onPress={this.toggle.bind(this)}
                         underlayColor="#f1f1f1">
             <View style={[styles.container,{height: this.state.animation}]}>
-                <View flexDirection ="row">
+                <View flexDirection = "row">
                 <View padding = {8}>
                 <Image source={arrofImages[this.state.FFBusid]} style={styles.photo}/>
                 </View>
-                <View style = {styles.nameCont} flex = {2} onLayout={this._setMinHeight.bind(this)}>
+
+
+                <View alignItems = "center" justifyContent = "center" flex = {2} onLayout={this._setMinHeight.bind(this)}>
                     <Text style={styles.nameStyle}>{this.state.FFBusname}</Text>
                 </View>
-                <View style={styles.iconCont}>
-                <TouchableOpacity onPress = {() => Linking.openURL(arrofWeb[this.state.FFBusid])}>
-                <SimpleIcon name = "arrow-right" size = {26}/>
-                </TouchableOpacity>
+
+                {this.renderButton()}
                 </View>
-                </View>
-                <View flexDirection = "column">
+                
+                
                 {this.renderView()}
-                </View>
+                
 
             </View>
         </TouchableHighlight>
@@ -106,22 +126,23 @@ class FFBusPanel extends Component{
 var styles = StyleSheet.create({
     container   : {
         backgroundColor: 'white',
+        //alignItems: 'center',
+        //justifyContent: 'center',
         //margin:10,
-        overflow:'hidden',
+        //overflow:'hidden',
     },
+
     nameCont: {
         alignItems: 'center',
-        paddingTop: 5,
-        paddingRight: 18,
-        
+        //justifyContent: 'center'
     },
     nameStyle: {
-        paddingTop: 20,
         marginRight: 8,
         marginLeft: 8,
         fontSize: 26,
-        fontWeight: 'bold',
-        fontFamily: 'GillSans',
+        fontWeight: '400',
+        fontFamily: 'GillSans-Light',
+        //textAlign: 'center'
     },
     title       : {
         paddingTop: 6,
@@ -135,9 +156,9 @@ var styles = StyleSheet.create({
         height  : 25
     },
     body        : {
-        flexDirection: 'column',
+        //flexDirection: 'column',
         padding: 10,
-        paddingTop: 30,
+        marginTop: 10,
         paddingBottom     : 10,
         paddingTop  : 0
     },

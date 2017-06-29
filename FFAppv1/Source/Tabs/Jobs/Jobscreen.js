@@ -12,18 +12,26 @@ import LofBusinesses from './LofBusinesses';
 class Jobscreen extends Component {
 	render () {
 		return (
-			
-			<ViewContainer>
-			{/*<ScrollableTabView tabBarTextStyle = {{fontSize: 12}}>*/}
-			
+			<View flex = {1} backgroundColor = "white">
+				<View style = {styles.infoCont}>
+						<Text style = {styles.infoText}>Looking for someone to help take your business to the next level? Or end a helping hand? Post your job or skill here!</Text>
+				</View>
 				<JobList wayto = {this.props.navigation}/>
-				
-			
-			{/*</ScrollableTabView>*/}
-			</ViewContainer>
-			
+			</View>
 			);
 	}
 }
 
+const styles = StyleSheet.create ({
+	infoCont: {
+		backgroundColor: 'rgba(0, 0, 0, 0.8)',
+		marginBottom: 10
+	},
+	infoText: {
+		color: 'white',
+		fontSize: 16,
+		fontFamily: 'GillSans',
+		textAlign: 'center'
+	}
+});
 export default Jobscreen;

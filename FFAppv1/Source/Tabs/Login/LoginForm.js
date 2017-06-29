@@ -1,8 +1,8 @@
-import React,{Component} from 'react'
-import {StyleSheet, Text, View, Image, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, TextInput} from 'react-native'
-import {connect} from 'react-redux'
-import {Card, CardSection, Button, ButtonCont, Spinner} from '../../Components/Common'
-import {emailChanged, passwordChanged, loginUser, newUser} from '../../Actions'
+import React,{Component} from 'react';
+import {StyleSheet, Text, View, Image, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, TextInput} from 'react-native';
+import {connect} from 'react-redux';
+import {Card, CardSection, Button, ButtonCont, Spinner} from '../../Components/Common';
+import {emailChanged, passwordChanged, loginUser, newUser} from '../../Actions';
 
 class LoginForm extends Component{
 

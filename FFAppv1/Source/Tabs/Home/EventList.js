@@ -40,6 +40,7 @@ class EventList extends Component {
 				alarm_hour={events[key].alarm_hour}
 				alarm_min={events[key].alarm_min}
 				remindMe={this.props.remindMe}
+				link={events[key].link}
 				/>
 				)
 			}
