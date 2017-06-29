@@ -42,7 +42,7 @@ class JobForm extends Component{
           <View style = {styles.containerStyle}>
           <Input 
             label="Contact:"
-            placeholder="Contact: Fordham Foundry"
+            placeholder="Email:"
             value={this.props.contact}
             onChangeText={text => this.props.jobUpdate({prop: 'contact', value: text})}
           />
@@ -65,7 +65,7 @@ class JobForm extends Component{
 const styles = ({
   containerStyle: {
     flexDirection: 'row',
-    
+    marginLeft: 10,
     marginBottom: 10
   },
   pickerTextStyle:{

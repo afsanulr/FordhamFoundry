@@ -117,7 +117,7 @@ export const Tabs = TabNavigator ({
 		navigationOptions: {
 			/*tabBarIcon: <Image source = {require('../../Images/bubbleicon.png')}
 						style = {{height: 50, width: 40}}/>*/
-			tabBarIcon: ({focused}) => <Image source = {focused ? require('../../Images/bubbleclickedon.png'):require('../../Images/bubbleiconbetter.png')} style = {{height: 45, width: 35}}/>
+			tabBarIcon: ({focused}) => <Image source = {focused ? require('../../Images/bubbleclicked.png'):require('../../Images/bubbleiconnot.png')} style = {{height: 45, width: 35}}/>
 			//tabBarIcon: ({tintColor, focused}) => <Icon name  = {focused ? "ios-information-circle": "ios-information-circle-outline"} size = {38} color = {focused? "darkred":"black"}/>
 		}
 	},

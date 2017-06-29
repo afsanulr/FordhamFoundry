@@ -25,7 +25,7 @@ class DandMscreen extends Component {
 
 const styles = StyleSheet.create ({
 	container : {
-		backgroundColor: 'black',
+		backgroundColor: 'maroon',//'rgba(0, 0, 0, 0.6)',
 		alignItems: 'center'
 	},
 	textStyle: {

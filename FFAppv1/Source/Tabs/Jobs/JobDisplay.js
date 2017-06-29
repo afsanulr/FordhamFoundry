@@ -2,18 +2,15 @@ import React from 'react';
 import {Text, View, Linking, TouchableOpacity, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 
-import {CardSection, Button, ButtonCont, LinkButton, DeleteButton} from '../../Components/Common';
+import {LinkButton, DeleteButton, ClickEmail} from '../../Components/Common';
 
 const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {  
   
   closeModal = (jobKey) => {
-    if(visible === true)
-    {
-      console.log("hello")
-      {onReturn}
-      console.log("goodbye")
-    }
-    jobDelete(jobKey);
+    jobDelete(jobKey)
+    onReturn()
+    
+
   }
 
   if(canDelete)
@@ -26,7 +23,7 @@ const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {
     )
 }
 
-const showButton = (jobBoard, jobKey) => 
+const showLinkButton = (jobBoard, jobKey) => 
 {
     if(!jobBoard.hasOwnProperty(jobKey))
     {
@@ -38,7 +35,24 @@ const showButton = (jobBoard, jobKey) =>
     }
     else {
       return (
-        <LinkButton onPress = {() => Linking.openURL(`${jobBoard[jobKey].link}`)}>Learn more</LinkButton>
+        <LinkButton jobBoard = {jobBoard} jobKey = {jobKey}>Learn more</LinkButton>
+      )
+  }
+}
+
+const showEmail = (jobBoard, jobKey) => 
+{
+    if(!jobBoard.hasOwnProperty(jobKey))
+    {
+      return
+    } 
+    else if(jobBoard[jobKey].contact === '')
+    {
+      return
+    }
+    else {
+      return (
+        <ClickEmail jobBoard = {jobBoard} jobKey = {jobKey}/>
       )
   }
 }
@@ -61,9 +75,9 @@ const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete, onReturn, visible})
         {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.descStyle}>{jobBoard[jobKey].description}</Text>:<Text></Text>}
         </View>
         <View style = {styles.contactCont}>
-        {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.contactStyle}>{jobBoard[jobKey].contact}</Text>:<Text></Text>}
+        {showEmail(jobBoard, jobKey)}
         </View>
-        {showButton(jobBoard, jobKey)}
+        {showLinkButton(jobBoard, jobKey)}
         
 
       {canDelete ? renderButton(canDelete, jobKey, jobDelete, onReturn, visible):<Text></Text>}
@@ -90,10 +104,11 @@ const styles = {
 		fontWeight: 'bold'
 	},
   titleStyle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+    fontSize: 20,
+    fontWeight: '400',
     fontFamily: 'GillSans',
-    paddingBottom: 2
+    paddingBottom: 2,
+    color: 'darkblue'
   },
   nameStyle: {
     fontSize: 14,

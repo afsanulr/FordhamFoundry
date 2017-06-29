@@ -1,10 +1,10 @@
 import React from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, Button, Image} from 'react-native'
+import {StyleSheet, Text, View, TouchableOpacity, Button, Image, Linking} from 'react-native'
 import {connect} from 'react-redux';
-import {Card, CardSection, Confirm} from '../../Components/Common'
+import {Card, CardSection, Confirm, UpdateButton} from '../../Components/Common'
 
 import Icon from 'react-native-vector-icons/Ionicons';
-const UpdateDisplay = ({title, update, date}) => {
+const UpdateDisplay = ({title, update, date, link}) => {
   console.log({title})
   showTitle = ()=> {
     if({title}.title === 'brevite' || {title}.title === 'Brevite')
@@ -37,6 +37,12 @@ const UpdateDisplay = ({title, update, date}) => {
           <Image style = {styles.photoStyle} source = {require('../../../Images/radiate.jpg')}/>
         );
     }
+    else if({title}.title === 'spire and co' || {title}.title === 'spireandco' || {title}.title === 'SpireandCo' || {title}.title === 'Spire and Co' || {title}.title === 'Spire And Co' || {title}.title === 'SpireAndCo')
+    {
+      return (
+          <Image style = {styles.photoStyle} source = {require('../../../Images/spirecobox.jpg')}/>
+        );
+    }
     else if({title}.title === "ventir" || {title}.title === "Ventir")
     {
       return (
@@ -45,9 +51,17 @@ const UpdateDisplay = ({title, update, date}) => {
     }
     else {
       return (
-        <Text style = {styles.titleStyle}>The title is not specified</Text>
+        <Image style = {styles.photoStyle} source = {require('../../../Images/fordham-rams-logo.png')}/>
       );
     }
+  }
+
+  renderButton = (link) => {
+    return (
+      <UpdateButton onPress={ () => Linking.openURL(link) }>
+        Link
+      </UpdateButton>
+    )
   }
 
   return (
@@ -59,6 +73,9 @@ const UpdateDisplay = ({title, update, date}) => {
           <View flex = {2}>
           {update!==null ? <Text style = {styles.updateStyle}>{update}</Text> : <Text style = {styles.updateStyle}>Update not specified</Text>}
           {date!==null ? <Text style = {styles.dateStyle}>{date}</Text> : <Text style = {styles.dateStyle}>The date is not specified</Text>}
+          </View>
+          <View>
+          {link!=="" ? renderButton(link) : <View width = {70}/>}
           </View>
         </View>
   )
@@ -79,21 +96,22 @@ const styles = StyleSheet.create ({
   },
   titleStyle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: '400',
     fontFamily: "GillSans"
   },
   updateStyle: {
     fontSize: 22,
-    fontFamily: "GillSans-Light"
+    fontFamily: "GillSans-Light",
+    fontWeight: '300'
   },
   dateStyle: {
-    fontSize: 18,
+    fontSize: 12,
     fontFamily: "GillSans-Light"
   },
   photoStyle: {
     height: 63,
     width: 70,
-    borderRadius: 20, 
+    borderRadius: 15, 
   }
 });
 

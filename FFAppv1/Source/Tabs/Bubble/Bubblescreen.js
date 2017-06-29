@@ -5,7 +5,6 @@ import ViewContainer from '../../Components/Common/ViewContainer';
 import Panel from '../../Components/Common/Panel';
 import PanelToView from '../../Components/Common/PanelToView';
 import MediaButtons from '../../Components/Common/MediaButtons';
-import call from 'react-native-phone-call';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import IonIcon from 'react-native-vector-icons/Ionicons'; 
 import ImageSlider from 'react-native-image-slider';
@@ -49,8 +48,11 @@ class HomeScreen extends Component {
 			<Panel title = "What is the Foundry?">
 				<Text style = {styles.messageT}>The Foundry is Fordham University’s business and idea incubator,
 				open to students, alumni, community, and the entrepreneurial organisations
-				they are part of. This is a space where entrepreneurs can create, refine and
-				grow their ideas. </Text>
+				they are part of. Students develop their skills and gain practical experience by working on student
+				ventures or by starting ventures of their own. As entrepreneurs, they can create, refine and grow 
+				their ideas moving from ideation to Impact . On-sight experts in a variety of fields provide consultation, 
+				advising, and mentorship in a vibrant co-working space. Speaker events allow students to learn from others,
+				but more importantly from each other.  </Text>
 			</Panel>
 			<Panel title = "You have a great business idea. Now what?">
 				<Text style = {styles.messageT}> Let us help you take your idea to the next level! </Text>

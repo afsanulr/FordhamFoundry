@@ -34,7 +34,9 @@ class UpdateList extends Component {
 					key = {key}
 					title = {updates[key].business}
 					update = {updates[key].update}
-					date = {updates[key].date}/>
+					date = {updates[key].date}
+					link = {updates[key].link}
+				/>
 			)
 
 			//updates[key].business is the name i.e Pathos or Ventir

@@ -7,19 +7,19 @@ import FFBusList from './FFBusList';
 class FFBusscreen extends Component {
 	render () {
 		return (
-			<ViewContainer>
+			<View flex = {1}>
 			<View style = {styles.container}>
 			<Text style = {styles.textStyle}> Click the rows to learn more about each Foundry business </Text>
 			</View>
 			<FFBusList/>
-			</ViewContainer>
+			</View>
 			);
 	}
 }
 
 const styles = StyleSheet.create ({
 	container : {
-		backgroundColor: 'black',
+		backgroundColor: 'maroon',
 		alignItems: 'center'
 	},
 	textStyle: {

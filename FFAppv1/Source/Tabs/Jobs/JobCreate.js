@@ -12,6 +12,8 @@ class JobCreate extends Component {
     this.state = {
       showModal: false
     }
+
+
   }
 
   renderModal(){
@@ -28,15 +30,17 @@ class JobCreate extends Component {
       const {currentUser} = firebase.auth()
       this.props.jobCreate({
         name: name || 'No Name Provided', 
-        contact: contact || 'No Contact Provided', 
+        contact: contact || '', 
         description: description || 'No Description Provided', 
         title: title || 'No Title Provided',
         link: link || '',
         user: currentUser.uid || null,
       })
+      alert ('Job Was Created!')
       
     }else{
-      this.setState({showModal: true})
+      alert('You Need To Log In To Post Jobs!')
+      //this.setState({showModal: true})
     }
 }
 
@@ -48,17 +52,15 @@ class JobCreate extends Component {
   render(){
     return (
       
-        <View flex = {1} backgroundColor = "white">
-        <View alignItems = "center">
+        <ScrollView flex = {1} backgroundColor = "white">
         <JobForm {...this.props}/>
-        </View>
         <View alignItems = "center">
           <Button onPress={this.onButtonPress.bind(this)}>
             Create
           </Button>
         </View>
         
-        </View>
+        </ScrollView>
       
     )
   }

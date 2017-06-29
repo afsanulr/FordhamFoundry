@@ -10,7 +10,7 @@ import JobListItem from './JobListItem';
 import JobSection from './JobSection';
 import JobCreate from './JobCreate';
 import {JobDisplay} from './JobDisplay';
-import {Card, Button, CardSection, ButtonCont, Confirm, CSCol} from '../../Components/Common';
+import {Card, Button, CardSection, ButtonCont, Confirm, Spinner, CSCol} from '../../Components/Common';
 import ViewContainer from '../../Components/Common/ViewContainer';
 
 class JobList extends Component {
@@ -67,7 +67,7 @@ class JobList extends Component {
 				rows.unshift(
 				<TouchableOpacity onPress={() => {this.renderDes(temp,true)}}>
 					<CSCol>
-							<Text style={styles.userJobStyle}>{jb[key].title.toUpperCase()}</Text>
+							<Text style={styles.userJobStyle}>{jb[key].title}</Text>
 							<Text style={styles.nameStyle}>{jb[key].name}</Text>
 							<Text style = {styles.dateStyle}>{jb[key].date}</Text>
 					</CSCol>
@@ -90,7 +90,10 @@ class JobList extends Component {
 	}
 
 	checkIf() {
-		if(this.props.jb === null)
+		if (this.props.loading){
+			return <Spinner size="large"/>
+		}
+		else if(this.props.jb === null)
 		{	
 			if(this.state.showDesModal === true)
 			{	
@@ -121,10 +124,6 @@ class JobList extends Component {
 			
 				{this.checkIf()}
 
-			
-				
-			
-
 			<Confirm 
 				visible={this.state.showDesModal}
 				onReturn={this.onReturn.bind(this)}
@@ -154,18 +153,6 @@ const styles = StyleSheet.create({
     height: StyleSheet.hairlineWidth,
     backgroundColor: '#8E8E8E',
   },
-  catStyle: {
-  	fontSize: 16,
-  	paddingLeft: 8,
-  	color:'blue',
-	fontWeight: 'bold',
-	fontFamily: "GillSans"
-  },
-  busStyle: {
-  	fontSize: 16,
-  	paddingLeft: 8,
-	fontFamily: "GillSans"
-  },
   dateStyle: {
   	paddingTop: 6,
   	paddingLeft: 8,
@@ -178,21 +165,21 @@ const styles = StyleSheet.create({
   	fontFamily: "GillSans"
   },
   jobStyle: {
-  	fontSize: 18,
+  	fontSize: 20,
 	paddingLeft: 8,
 	color: 'darkblue',
-	fontWeight: 'bold',
+	fontWeight: '400',
 	fontFamily: "GillSans"
   },
   textStyle: {
-		fontSize: 16,
-		fontWeight: 'bold'
+	fontSize: 16,
+	fontWeight: 'bold'
   },
   userJobStyle:{
-	fontSize: 18,
+	fontSize: 20,
 	paddingLeft: 8,
 	color: '#4AB312',
-	fontWeight: 'bold',
+	fontWeight: '400',
 	fontFamily: "GillSans"
   }
 });
@@ -200,7 +187,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => {
 	const {email, jb} = state.jobForm
 	const {user} = state.auth
-	return {email, jb, user}
+	const {loading} = state.jobForm
+	return {email, jb, user, loading}
 };
 
 export default connect(mapStateToProps, {fetchJobs,jobDelete})(JobList);
