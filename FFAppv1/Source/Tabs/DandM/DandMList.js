@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, ListView, StyleSheet} from 'react-native';
+import {View, ListView, StyleSheet} from 'react-native';
 
 import DandMRow from './DandMRow';
 import data from '../../Data/DandM';

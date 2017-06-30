@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
+import {TextInput, View} from 'react-native';
 
 const Input = ({label, value, onChangeText, placeholder, secureText, multiline, height, maxLength, refName}) => {
 	const {inputStyle, labelStyle, containerStyle} = styles
@@ -27,20 +27,16 @@ const Input = ({label, value, onChangeText, placeholder, secureText, multiline, 
 const styles = {
 	containerStyle: {
 		flex: 1,
-		
 		height: undefined,
 		marginBottom: 3,
 		marginRight: 10
-		//alignItems: 'center'
 	},
 	inputStyle:{
 	  fontFamily: 'GillSans-Light',
-	  //height: 40,
 	  backgroundColor: 'rgba(211, 211, 211, 0.5)',
 	  paddingHorizontal: 10
 	},
 	labelStyle: {
-		//flex: 1,
 		fontSize: 16,
 		paddingBottom: 5,
 		fontWeight: 'bold',

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View, Text, Keyboard, Picker, KeyboardAvoidingView, TouchableWithoutFeedback} from 'react-native';
-import {CardSection, Input} from '../../Components/Common';
+import {View, Keyboard, TouchableWithoutFeedback} from 'react-native';
+import {Input} from '../../Components/Common';
 import {connect} from 'react-redux';
 import {jobUpdate} from '../../Actions';
 

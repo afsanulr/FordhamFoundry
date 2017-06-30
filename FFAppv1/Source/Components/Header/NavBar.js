@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text, TouchableOpacity, Image} from 'react-native';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import {View, Image} from 'react-native';
 
 class NavBar extends Component {
 	render() {
@@ -14,24 +13,14 @@ class NavBar extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	navBarBackground: {
 		height: 64,
 		backgroundColor: "#f7f7f8",
 		alignItems: 'center',
 		justifyContent: 'center',
 		flexDirection: 'row'
-	},
-
-	textInNav: {
-		fontSize: 20,
-		fontWeight: 'bold'
-	},
-
-	calbutton: {
-		alignItems: 'flex-end'
 	}
-
 });
 
 export default NavBar

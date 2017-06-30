@@ -1,49 +1,29 @@
 import React, {Component} from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight, TouchableOpacity, Animated, LayoutAnimation, Linking} from 'react-native';
+import {Text, View, Image, TouchableHighlight, TouchableOpacity, Linking} from 'react-native';
+
+import arrofImages from '../../Data/FFBusimagesarr';
+import arrofWeb from '../../Data/FFBusemailarr';
 import IonIcon from 'react-native-vector-icons/Ionicons';
-
-var arrofImages = [
-    require('../../../Images/brevite.jpg'),
-    require('../../../Images/KindMind.jpg'),
-    require('../../../Images/pathoslogo.png'),
-    require('../../../Images/radiate.jpg'),
-    require('../../../Images/redplanet.jpg'),
-    require('../../../Images/spirecobox.jpg'),
-    require('../../../Images/ventir.png')
-];
-
-var arrofWeb = [
-  "https://brevite.co",
-  "http://kindmind.io",
-  "",
-  "http://www.radiatemarket.com",
-  "",
-  "https://spireand.co",
-  "http://www.ventircreates.com"
-];
-
 
 class FFBusPanel extends Component{
     constructor(props){
         super(props);
-        this.state = {       //Step 3
-            FFBusid         : props.FFBusid,
-            FFBusname       : props.FFBusname,
-            expanded    : false,
-            //animation   : new Animated.Value()
+        this.state = {       
+            FFBusid: props.FFBusid,
+            FFBusname: props.FFBusname,
+            expanded: false,
         };
-
     }
 
     _setMaxHeight(event){
         this.setState({
-            maxHeight   : event.nativeEvent.layout.height
+            maxHeight: event.nativeEvent.layout.height
         });
     }
 
     _setMinHeight(event){
         this.setState({
-            minHeight   : event.nativeEvent.layout.height
+            minHeight: event.nativeEvent.layout.height
         });
     }
 
@@ -52,17 +32,8 @@ class FFBusPanel extends Component{
         finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
         this.setState({
-            expanded : !this.state.expanded  //Step 2
+            expanded: !this.state.expanded
         });
-
-        /*this.state.animation.setValue(initialValue);  //Step 3
-        Animated.spring(     //Step 4
-            this.state.animation,
-            {
-                toValue: finalValue
-            }
-        ).start();*/
-        
     }
 
     renderView() {
@@ -104,63 +75,48 @@ class FFBusPanel extends Component{
                 <View padding = {8}>
                 <Image source={arrofImages[this.state.FFBusid]} style={styles.photo}/>
                 </View>
-
-
                 <View alignItems = "center" justifyContent = "center" flex = {2} onLayout={this._setMinHeight.bind(this)}>
                     <Text style={styles.nameStyle}>{this.state.FFBusname}</Text>
                 </View>
-
                 {this.renderButton()}
                 </View>
-                
-                
                 {this.renderView()}
-                
-
             </View>
         </TouchableHighlight>
         );
     }
 }
 
-var styles = StyleSheet.create({
-    container   : {
-        backgroundColor: 'white',
-        //alignItems: 'center',
-        //justifyContent: 'center',
-        //margin:10,
-        //overflow:'hidden',
+var styles = ({
+    container: {
+        backgroundColor: 'white'
     },
-
     nameCont: {
-        alignItems: 'center',
-        //justifyContent: 'center'
+        alignItems: 'center'
     },
     nameStyle: {
         marginRight: 8,
         marginLeft: 8,
         fontSize: 26,
         fontWeight: '400',
-        fontFamily: 'GillSans-Light',
-        //textAlign: 'center'
+        fontFamily: 'GillSans-Light'
     },
-    title       : {
+    title: {
         paddingTop: 6,
         marginLeft: 8,
         fontSize: 16,
         fontWeight: 'bold',
         fontFamily: 'GillSans'
     },
-    buttonImage : {
-        width   : 30,
-        height  : 25
+    buttonImage: {
+        width: 30,
+        height: 25
     },
-    body        : {
-        //flexDirection: 'column',
+    body: {
         padding: 10,
         marginTop: 10,
-        paddingBottom     : 10,
-        paddingTop  : 0
+        paddingBottom: 10,
+        paddingTop: 0
     },
     photo: {
         height: 80,

@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
-import LoginForm from './LoginForm';
 import {Text, View, Image} from 'react-native';
 import {logoutUser, loggedInUser} from '../../Actions';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
 
-import NavBar from '../../Components/Header/NavBar';
 import ViewContainer from '../../Components/Common/ViewContainer';
-import {Card, CardSection, Button, ButtonCont} from '../../Components/Common';
 
+import LoginForm from './LoginForm';
 import Logoutscreen from './Logoutscreen';
 
 class LoginScreen extends Component {
-
   componentWillMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if(user) {
@@ -45,9 +42,9 @@ class LoginScreen extends Component {
                 {firebase.auth().currentUser.email}
               </Text>
             </View>
-            <View alignItems = "center">
+            
               <Logoutscreen logoutFunc = {this.onLogOut.bind(this)}/>
-            </View>
+            
           </View>
         )
       default:

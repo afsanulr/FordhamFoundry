@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, Linking} from 'react-native';
+import {Text, StyleSheet, View, Linking} from 'react-native';
 
 import NavBar from '../../Components/Header/NavBar';
 import ViewContainer from '../../Components/Common/ViewContainer';
@@ -10,22 +10,22 @@ class DandMscreen extends Component {
 	render () {
 		return (
 			<ViewContainer>
-			<NavBar/>
-			<View style = {styles.container}>
-			<Text style = {styles.textStyle}> Click the rows to learn more about each mentor </Text>
-			</View>
-			<DandMList/>
-			<View alignItems = "center" paddingTop = {5} borderTopWidth = {StyleSheet.hairlineWidth}>
-			<Button onPress = {() => Linking.openURL('https://www.fordhamfoundry.org/about-us/team/')}> Click to learn more </Button>
-			</View>
+				<NavBar/>
+				<View style = {styles.container}>
+				<Text style = {styles.textStyle}> Click the rows to learn more about each mentor </Text>
+				</View>
+				<DandMList/>
+				<View alignItems = "center" paddingTop = {5} borderTopWidth = {StyleSheet.hairlineWidth}>
+				<Button onPress = {() => Linking.openURL('https://www.fordhamfoundry.org/about-us/team/')}> Click to learn more </Button>
+				</View>
 			</ViewContainer>
 			);
 	}
 }
 
-const styles = StyleSheet.create ({
-	container : {
-		backgroundColor: 'maroon',//'rgba(0, 0, 0, 0.6)',
+const styles = ({
+	container: {
+		backgroundColor: 'maroon',
 		alignItems: 'center'
 	},
 	textStyle: {

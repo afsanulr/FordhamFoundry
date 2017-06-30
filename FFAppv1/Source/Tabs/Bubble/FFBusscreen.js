@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {Text, View} from 'react-native';
 
 import ViewContainer from '../../Components/Common/ViewContainer';
 import FFBusList from './FFBusList';
@@ -7,17 +7,17 @@ import FFBusList from './FFBusList';
 class FFBusscreen extends Component {
 	render () {
 		return (
-			<View flex = {1}>
-			<View style = {styles.container}>
-			<Text style = {styles.textStyle}> Click the rows to learn more about each Foundry business </Text>
-			</View>
-			<FFBusList/>
-			</View>
+			<ViewContainer>
+				<View style = {styles.container}>
+				<Text style = {styles.textStyle}> Click the rows to learn more about each Foundry business </Text>
+				</View>
+				<FFBusList/>
+			</ViewContainer>
 			);
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	container : {
 		backgroundColor: 'maroon',
 		alignItems: 'center'
@@ -27,5 +27,6 @@ const styles = StyleSheet.create ({
 		fontSize: 16,
 		fontFamily: 'GillSans'
 	}
-})
+});
+
 export default FFBusscreen;

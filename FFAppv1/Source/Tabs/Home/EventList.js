@@ -1,15 +1,13 @@
 import React, {Component} from 'react';
-import {Text, View, ListView, ScrollView, TouchableOpacity} from 'react-native';
-import { connect } from 'react-redux'
-import { readEvents, remindMe } from '../../Actions'
+import {Text, View, ScrollView} from 'react-native';
+import {connect} from 'react-redux'
+import {readEvents, remindMe} from '../../Actions'
 import {EventDisplay} from './EventDisplay'
-import { Confirm, Header } from '../../Components/Common'
 
 class EventList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			showModal:false,
 			curKey: ''
 		}
 
@@ -27,7 +25,6 @@ class EventList extends Component {
 		}
 		else {list = []
 		for(key in events){
-			//const temp = key
 			list.push(
 				<EventDisplay 
 				title={key}
@@ -58,8 +55,8 @@ class EventList extends Component {
 }
 
 const mapStateToProps = state =>{
-	const { events } = state.eventList
-	return { events }
+	const {events} = state.eventList
+	return {events}
 }
 
 export default connect(mapStateToProps, { readEvents, remindMe })(EventList)

@@ -1,11 +1,10 @@
 import React from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, Button, Image, Linking} from 'react-native'
+import {StyleSheet, Text, View, Image} from 'react-native'
 import {connect} from 'react-redux';
-import {Card, CardSection, Confirm, UpdateButton} from '../../Components/Common'
+import {UpdateButton} from '../../Components/Common'
 
-import Icon from 'react-native-vector-icons/Ionicons';
 const UpdateDisplay = ({title, update, date, link}) => {
-  console.log({title})
+
   showTitle = ()=> {
     if({title}.title === 'brevite' || {title}.title === 'Brevite')
     {
@@ -65,7 +64,6 @@ const UpdateDisplay = ({title, update, date, link}) => {
   }
 
   return (
-      
         <View style = {styles.container}>
           <View flex = {1} alignItems = "center">
           {showTitle()}
@@ -75,7 +73,7 @@ const UpdateDisplay = ({title, update, date, link}) => {
           {date!==null ? <Text style = {styles.dateStyle}>{date}</Text> : <Text style = {styles.dateStyle}>The date is not specified</Text>}
           </View>
           <View>
-          {link!=="" ? renderButton(link) : <View width = {70}/>}
+          {link!=="" ? renderButton(link) : <View/>}
           </View>
         </View>
   )
@@ -88,7 +86,6 @@ const styles = StyleSheet.create ({
     justifyContent: 'center',
     flexDirection: 'row',
     borderBottomWidth: StyleSheet.hairlineWidth
-    //backgroundColor: "#"
   },
   buttonCont: {
     height: 45,
@@ -100,7 +97,7 @@ const styles = StyleSheet.create ({
     fontFamily: "GillSans"
   },
   updateStyle: {
-    fontSize: 22,
+    fontSize: 18,
     fontFamily: "GillSans-Light",
     fontWeight: '300'
   },

@@ -1,13 +1,8 @@
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, View, Text} from 'react-native';
+import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 
-import ViewContainer from '../../Components/Common/ViewContainer';
-import NavBar from '../../Components/Header/NavBar';
-// import ScrollableTabView from 'react-native-scrollable-tab-view';
 import JobList from './JobList';
-import LofBusinesses from './LofBusinesses';
-//import JobSection from '../../Components/JobSection';
 
 class Jobscreen extends Component {
 	render () {
@@ -22,7 +17,7 @@ class Jobscreen extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	infoCont: {
 		backgroundColor: 'rgba(0, 0, 0, 0.8)',
 		marginBottom: 10
@@ -34,4 +29,5 @@ const styles = StyleSheet.create ({
 		textAlign: 'center'
 	}
 });
+
 export default Jobscreen;

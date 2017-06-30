@@ -1,11 +1,10 @@
 import React,{Component} from 'react';
-import {StyleSheet, Text, View, Image, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, TextInput} from 'react-native';
+import {Text, View, Image, KeyboardAvoidingView, Keyboard, TouchableWithoutFeedback, TextInput} from 'react-native';
 import {connect} from 'react-redux';
-import {Card, CardSection, Button, ButtonCont, Spinner} from '../../Components/Common';
+import {Button, Spinner} from '../../Components/Common';
 import {emailChanged, passwordChanged, loginUser, newUser} from '../../Actions';
 
 class LoginForm extends Component{
-
   onEmailChange(text){
     this.props.emailChanged(text)
   }
@@ -81,71 +80,59 @@ class LoginForm extends Component{
         {this.props.error}
         </Text>
 
-        
         {this.renderButton()}
-        
-        
         
         <Button onPress = {this.onNewHere.bind(this)}>
           Sign Up
         </Button> 
       </KeyboardAvoidingView>
-
     </View>
     </TouchableWithoutFeedback>
     );
   }
 }
 
-const styles = StyleSheet.create({
+const styles = ({
 
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
   },
-
   emailContainer:{
-  padding:10,
-},
-
+    padding:10,
+  },
   logoContainer:{
-  alignItems: 'center',
-  //flexGrow: 1, 
-  justifyContent: 'center',
-  marginBottom: 20,
-  marginTop: 10
-},
-
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    marginTop: 10
+  },
   logo:{
-  height: 200,
-  width: 200,
-},
-
+    height: 200,
+    width: 200,
+  },
   sign: {
-  fontFamily: 'GillSans-Light',
-  fontSize: 25,
-  textAlign: 'center',
-  padding: 10,
-  fontWeight: '400'
-},
-
+    fontFamily: 'GillSans-Light',
+    fontSize: 25,
+    textAlign: 'center',
+    padding: 10,
+    fontWeight: '400'
+  },
   quote:{
-  fontFamily : 'GillSans-Light', 
-  fontSize: 15,
-  marginTop: 2,
-  width:350, 
-  textAlign: 'center'
-},
-
+    fontFamily : 'GillSans-Light', 
+    fontSize: 15,
+    marginTop: 2,
+    width:350, 
+    textAlign: 'center'
+  },
   input:{
-  fontFamily: 'GillSans-Light',
-  height: 40,
-  backgroundColor: 'rgba(211, 211, 211, 0.5)',
-  marginBottom: 20,
-  paddingHorizontal: 10
-},
-
+    fontFamily: 'GillSans-Light',
+    height: 40,
+    backgroundColor: 'rgba(211, 211, 211, 0.5)',
+    marginBottom: 20,
+    paddingHorizontal: 10
+  },
   errorTextStyle:{
     fontSize:20,
     alignSelf:'center',

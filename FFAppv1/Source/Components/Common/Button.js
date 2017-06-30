@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import {Text, View, TouchableOpacity} from 'react-native';
 
 const Button = ({ onPress, children }) => {
   const { buttonStyle, textStyle } = styles;
@@ -18,8 +18,6 @@ const Button = ({ onPress, children }) => {
 const styles = {
   container: {
     flexDirection: 'row',
-    //paddingTop: 5,
-    //justifyContent: 'center',
     width: 250,
     marginBottom: 5,
   },
@@ -32,10 +30,8 @@ const styles = {
   },
   buttonStyle: {
     flex: 1,
-    
     backgroundColor: 'maroon',
     borderRadius: 5,
-    //padding: 5,
     borderColor: 'black',
     
   }

@@ -1,16 +1,13 @@
 import React, {Component} from 'react';
-import {Text, ListView, StyleSheet, View, ScrollView, TouchableOpacity, KeyboardAvoidingView} from 'react-native';
+import {Text, StyleSheet, View, ScrollView, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {fetchJobs, jobDelete} from '../../Actions';
 import JobForm from './JobForm';
 import firebase from 'firebase';
 
-//import * as actions from '../Actions';
-import JobListItem from './JobListItem';
-import JobSection from './JobSection';
 import JobCreate from './JobCreate';
 import {JobDisplay} from './JobDisplay';
-import {Card, Button, CardSection, ButtonCont, Confirm, Spinner, CSCol} from '../../Components/Common';
+import {Button, Confirm, Spinner, CSCol} from '../../Components/Common';
 import ViewContainer from '../../Components/Common/ViewContainer';
 
 class JobList extends Component {
@@ -52,17 +49,18 @@ class JobList extends Component {
 	}
 
 	fetchJobBoard(){
-
 		jb = this.props.jb
 		rows=[]
+
 		if(this.props.user === null){
 			currentUserId = -1
 		}else{
 			currentUserId = firebase.auth().currentUser.uid
 		}
+
 		for(var key in jb){
 			const temp = key
-			//changed from if to else if
+
 			if(currentUserId === jb[key].user){ //If current user created job, show delete button
 				rows.unshift(
 				<TouchableOpacity onPress={() => {this.renderDes(temp,true)}}>
@@ -113,7 +111,6 @@ class JobList extends Component {
 	}
 
 	render() {
-		
 		return(
 			<View flex = {1} backgroundColor = "white">
 				<View  alignItems = "center" paddingBottom = {5} borderBottomWidth = {StyleSheet.hairlineWidth}>
@@ -134,10 +131,9 @@ class JobList extends Component {
 						jobBoard={this.props.jb} 
 						jobKey={this.state.curKey} 
 						canDelete={this.state.canDelete} 
-						jobDelete={this.props.jobDelete}/> 
+						jobDelete={this.props.jobDelete}
+					/> 
 			</Confirm>
-			
-
 			</View>
 
 		

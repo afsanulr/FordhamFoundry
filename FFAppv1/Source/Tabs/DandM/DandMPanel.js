@@ -1,65 +1,31 @@
 import React, {Component} from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight, TouchableOpacity, Animated, LayoutAnimation, Linking} from 'react-native';
+import {Text, View, Image, TouchableHighlight, TouchableOpacity, Linking} from 'react-native';
+
+import arrofImages from '../../Data/DandMimagesarr';
+import arrofEmails from '../../Data/DandMemailarr';
 import MatIcon from 'react-native-vector-icons/MaterialIcons';
-
-var arrofImages = [
-    require('../../../Images/ALBartosic.png'),
-    require('../../../Images/anthonyp.jpg'),
-    require('../../../Images/BillCatalano.png'),
-    require('../../../Images/LIPhotoCMeyer.jpg'),
-    require('../../../Images/Christine_Janssen.jpg'),
-    require('../../../Images/Enzo.jpg'),
-    require('../../../Images/KevinMcQuillan.png'),
-    require('../../../Images/MariellaSypa.jpg'),
-    require('../../../Images/MMcSherry.jpg'),
-    require('../../../Images/MichaelPriest.png'),
-    require('../../../Images/image1.jpg'),
-    require('../../../Images/NicolaCorzine.png'),
-    require('../../../Images/NicoleJohnson.png'),
-    require('../../../Images/shaunjohnsonsquare.jpg'),
-    require('../../../Images/Weiyu.jpg'),
-];
-
-var arrofEmails = [
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Albert J. Bartosic",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Anthony Parente",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Bill Catalano",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Chris Meyer",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Christine Janssen",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Enzo Obeso",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Kevin McQuillan",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Mariella Sypa",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Michael McSherry",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Michael Priest",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Milton J. Sussberg",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Nicola Corzine",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Nicole Johnson",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Shaun Johnson",
-  "mailto:fordhamfoundry@fordham.edu?subject=Hoping to contact Weiyu Shen",
-];
 
 class DandMPanel extends Component{
     constructor(props){
         super(props);
-        this.state = {       //Step 3
-            DandMid         : props.DandMid,
-            DandMname       : props.DandMname,
-            DandMtitle      : props.DandMtitle,
-            expanded    : false,
-            //animation   : new Animated.Value()
+        this.state = {
+            DandMid: props.DandMid,
+            DandMname: props.DandMname,
+            DandMtitle: props.DandMtitle,
+            expanded: false,
         };
 
     }
 
     _setMaxHeight(event){
         this.setState({
-            maxHeight   : event.nativeEvent.layout.height
+            maxHeight: event.nativeEvent.layout.height
         });
     }
 
     _setMinHeight(event){
         this.setState({
-            minHeight   : event.nativeEvent.layout.height
+            minHeight: event.nativeEvent.layout.height
         });
     }
 
@@ -68,7 +34,7 @@ class DandMPanel extends Component{
         finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
         this.setState({
-            expanded : !this.state.expanded  //Step 2
+            expanded : !this.state.expanded
         });
     }
 
@@ -107,17 +73,14 @@ class DandMPanel extends Component{
                 <View flexDirection = "column">
                 {this.renderView()}
                 </View>
-
             </View>
         </TouchableHighlight>
         );
     }
 }
 
-var styles = StyleSheet.create({
-    container   : {
-        
-        //margin:10,
+var styles = ({
+    container: {
         overflow:'hidden',
     },
     nameandtitlecont: {
@@ -137,16 +100,16 @@ var styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'GillSans-Light'
     },
-    buttonImage : {
-        width   : 30,
-        height  : 25
+    buttonImage: {
+        width: 30,
+        height: 25
     },
     body        : {
         flexDirection: 'column',
         padding: 10,
         paddingTop: 30,
-        paddingBottom     : 10,
-        paddingTop  : 0
+        paddingBottom: 10,
+        paddingTop: 0
     },
     photo: {
         height: 80,

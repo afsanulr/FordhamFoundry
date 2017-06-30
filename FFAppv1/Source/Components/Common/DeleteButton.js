@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, View, TouchableOpacity} from 'react-native';
 
-const DeleteButton = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
+const DeleteButton = ({onPress, children}) => {
+  const {buttonStyle, textStyle} = styles;
 
   return (
     <View style = {styles.container}>
@@ -19,6 +19,7 @@ const styles = {
   container: {
     paddingTop: 10,
     flexDirection: 'row',
+    width: 120
   },
   textStyle: {
     alignSelf: 'center',
@@ -29,12 +30,9 @@ const styles = {
   },
   buttonStyle: {
     flex: 1,
-    alignSelf: 'stretch',
     backgroundColor: 'maroon',
     borderRadius: 5,
     borderColor: 'black',
-    marginLeft: 40,
-    marginRight: 40
   }
 };
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const LinkButton = ({ jobBoard, jobKey, children }) => {
-  const { buttonStyle, textStyle } = styles;
+const LinkButton = ({jobBoard, jobKey, children}) => {
+  const {buttonStyle, textStyle} = styles;
 
   return (
     <View style = {styles.container}>
@@ -18,8 +18,6 @@ const LinkButton = ({ jobBoard, jobKey, children }) => {
 const styles = {
   container: {
     flexDirection: 'row',
-    //paddingTop: 5,
-    //paddingRight: 275,
     marginBottom: 10,
   },
   textStyle: {
@@ -31,13 +29,11 @@ const styles = {
   },
   buttonStyle: {
     flex: 1,
-    //alignSelf: 'stretch',
     backgroundColor: '#0981CC',
     borderRadius: 5,
     height: 32,
     width: 50,
-    borderColor: 'black',
-    
+    borderColor: 'black',  
   }
 };
 
