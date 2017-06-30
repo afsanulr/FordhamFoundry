@@ -1,22 +1,21 @@
 import React, {Component} from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight, Animated, LayoutAnimation} from 'react-native';
+import {Text, View, TouchableHighlight} from 'react-native';
 import Icon from 'react-native-vector-icons/Octicons';
 
 class PanelToView extends Component{
     constructor(props) {
-            super(props)
+        super(props)
+        this.state = {       
+            title: props.title,
+        };
+    }
 
-            this.state = {       //Step 3
-                title: props.title,
-            };
-        }
     render(){
-        //Step 5
         return ( 
         <TouchableHighlight onPress = {() => this.props.wayto.navigate('FFBus')}
                         style={styles.button} 
                         underlayColor="#f1f1f1">
-            <View style={[styles.container]}>
+            <View style={styles.container}>
                 <View style={styles.titleContainer}>
                     <Text style={styles.title}>{this.state.title}</Text>
                         
@@ -27,7 +26,7 @@ class PanelToView extends Component{
     }
 }
 
-var styles = StyleSheet.create({
+var styles = ({
     container   : {
         backgroundColor: 'maroon',
         margin:10,

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 
 class ViewContainer extends Component {
 	render () {
@@ -11,7 +11,7 @@ class ViewContainer extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	viewContainer: {
 		flex: 1,
 		flexDirection: "column",

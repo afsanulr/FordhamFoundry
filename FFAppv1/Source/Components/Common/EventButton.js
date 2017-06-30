@@ -1,8 +1,8 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 
-const EventButton = ({ onPress, children }) => {
-  const { buttonStyle, textStyle } = styles;
+const EventButton = ({onPress, children}) => {
+  const {buttonStyle, textStyle} = styles;
 
   return (
     <View style = {styles.container}>
@@ -18,8 +18,6 @@ const EventButton = ({ onPress, children }) => {
 const styles = {
   container: {
     flex: 1,
-    //paddingTop: 5,
-    // paddingRight: 275,
   },
   textStyle: {
     alignSelf: 'center',
@@ -30,7 +28,6 @@ const styles = {
     paddingTop: 10
   },
   buttonStyle: {
-    //alignSelf: 'stretch',
     backgroundColor: '#0981CC',
     borderRadius: 5,
     width: 100,

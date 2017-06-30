@@ -1,5 +1,5 @@
 import React from 'react';
-import {Text, View, Linking, TouchableOpacity, StyleSheet} from 'react-native';
+import {Text, View, Linking, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 
 import {LinkButton, DeleteButton, ClickEmail} from '../../Components/Common';
@@ -9,13 +9,11 @@ const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {
   closeModal = (jobKey) => {
     jobDelete(jobKey)
     onReturn()
-    
-
   }
 
   if(canDelete)
     return(
-      <View borderTopWidth = {StyleSheet.hairlineWidth}>
+      <View alignItems = "center" borderTopWidth = {StyleSheet.hairlineWidth}>
         <DeleteButton onPress={() => {closeModal(jobKey)}}>
           Delete
         </DeleteButton>
@@ -52,7 +50,11 @@ const showEmail = (jobBoard, jobKey) =>
     }
     else {
       return (
-        <ClickEmail jobBoard = {jobBoard} jobKey = {jobKey}/>
+        <ClickEmail onPress = {() => Linking.openURL('mailto:{`${jobBoard[jobKey].contact`}')}>
+        <Text style = {styles.linkText}>
+        {`${jobBoard[jobKey].contact}`}
+        </Text>
+        </ClickEmail>
       )
   }
 }
@@ -71,17 +73,12 @@ const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete, onReturn, visible})
         {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.titleStyle}>{`${jobBoard[jobKey].title}`}</Text>:<Text></Text>}
         {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.nameStyle}>{`${jobBoard[jobKey].name}`}</Text>:<Text></Text>}
         </View>
-        <View style = {styles.desc}>
         {jobBoard.hasOwnProperty(jobKey) ? <Text style = {styles.descStyle}>{jobBoard[jobKey].description}</Text>:<Text></Text>}
-        </View>
         <View style = {styles.contactCont}>
         {showEmail(jobBoard, jobKey)}
         </View>
         {showLinkButton(jobBoard, jobKey)}
-        
-
-      {canDelete ? renderButton(canDelete, jobKey, jobDelete, onReturn, visible):<Text></Text>}
-
+        {canDelete ? renderButton(canDelete, jobKey, jobDelete, onReturn, visible):<Text></Text>}
     </View>
     );
   }
@@ -90,21 +87,15 @@ const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete, onReturn, visible})
 const styles = {
   titleandname: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingBottom: 10
-  },
-  desc: {
-    marginTop: 10
+    paddingBottom: 10,
+    marginBottom: 10
   },
   contactCont: {
     marginTop: 20,
     marginBottom: 20
   },
-	textStyle: {
-		fontSize: 12,
-		fontWeight: 'bold'
-	},
   titleStyle: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '400',
     fontFamily: 'GillSans',
     paddingBottom: 2,
@@ -115,12 +106,12 @@ const styles = {
     fontFamily: 'GillSans-Light'
   },
   descStyle: {
-    fontSize: 16,
+    fontSize: 14,
     fontFamily: 'GillSans-Light'
   },
-  contactStyle: {
-    fontSize: 16,
-    fontFamily: 'GillSans-Light'
+  linkText: {
+    color: 'blue',
+    fontSize: 12
   }
 }
 

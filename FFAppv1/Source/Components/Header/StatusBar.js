@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 
 class StatusBarbg extends Component {
 	render() {
@@ -10,11 +10,11 @@ class StatusBarbg extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	statusBarBackground: {
 		height: 20,
 		backgroundColor: "#f7f7f8"
 	}
-})
+});
 
 export default StatusBarbg

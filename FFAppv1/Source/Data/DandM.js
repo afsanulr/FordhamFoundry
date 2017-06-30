@@ -62,8 +62,8 @@ export default data = [
 	{
 		"id": 10,
 		"name": "Milton J. Sussberg",
-		"title": "Foundry Manager",
-		"desc": "\u2022 Milton Sussberg has been a consumer product marketing entrepreneur for over thirty five years, having served as president of the company that launched the food processor, and for the last thirty years has operated his own entrepreneurial sales and marketing consulting firm.\n\u2022 Sussberg & Co., Inc. has been involved with many start ups including: Sonicare, Thermoscan and Foodsaver;as well as, consulting for Royal Philips, Gillette, and Hamilton Beach. He has also owned a luxury goods manufacturer, and a Class A minor league baseball team.\n\u2022 Sussberg has a BBA in management from the University of Wisconsin-Madison, and an MBA in marketing from Columbia University Graduate School of Business."
+		"title": "Adjunct Professor of Entrepreneurship\nDirector, Fordham Foundry",
+		"desc": "\u2022 Milton J. Sussberg has been a consumer product marketing entrepreneur for over thirty five years, having served as president of the company that launched the food processor, and for the last thirty years has operated his own entrepreneurial sales and marketing consulting firm.\n\u2022 Sussberg & Co., Inc. has been involved with many start ups including: Sonicare, Thermoscan and Foodsaver;as well as, consulting for Royal Philips, Gillette, and Hamilton Beach. He has also owned a luxury goods manufacturer, and a Class A minor league baseball team.\n\u2022 Sussberg has a BBA in management from the University of Wisconsin-Madison, and an MBA in marketing from Columbia University Graduate School of Business."
 	},
 	{
 		"id": 11,

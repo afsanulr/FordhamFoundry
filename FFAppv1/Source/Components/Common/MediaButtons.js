@@ -1,14 +1,12 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, TouchableOpacity, Linking} from 'react-native';
+import {View, TouchableOpacity, Linking} from 'react-native';
 import call from 'react-native-phone-call';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 import FontIcon from 'react-native-vector-icons/FontAwesome';
 import MatIcon from 'react-native-vector-icons/MaterialIcons';
 
 class MediaButtons extends Component {
-
 	render() {
-
 		const args = {
 			number: '7188175660',
 			prompt: true
@@ -39,14 +37,14 @@ class MediaButtons extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	socialM: {
 		paddingLeft: 10,
 		paddingRight: 10,
 		flexDirection: "row",
 		alignItems: 'center',
 		justifyContent: 'space-around',
-		backgroundColor: 'lightgrey'
+		backgroundColor: 'lightgrey',
 	}
 })
 

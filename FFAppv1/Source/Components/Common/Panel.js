@@ -1,20 +1,19 @@
 import React, {Component} from 'react';
-import {StyleSheet,Text,View,Image,TouchableHighlight,Animated, LayoutAnimation} from 'react-native';
+import {Text, View, Image, TouchableHighlight, Animated, LayoutAnimation} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 class Panel extends Component{
     constructor(props){
         super(props);
 
-        this.icons = {     //Step 2
+        this.icons = {     
             'up'    : require('../../../Images/Arrowhead-01-128.png'),
             'down'  : require('../../../Images/Arrowhead-Down-01-128.png')
         };
 
-        this.state = {       //Step 3
+        this.state = {       
             title       : props.title,
             expanded    : false,
-            //animation   : new Animated.Value()
         };
 
     }
@@ -36,17 +35,8 @@ class Panel extends Component{
         finalValue = this.state.expanded? this.state.minHeight : this.state.maxHeight + this.state.minHeight;
 
 	    this.setState({
-	        expanded : !this.state.expanded  //Step 2
+	        expanded : !this.state.expanded
 	    });
-
-	    /*this.state.animation.setValue(initialValue);  //Step 3
-	    Animated.spring(     //Step 4
-	        this.state.animation,
-	        {
-	            toValue: finalValue
-	        }
-	    ).start();*/
-        
     }
 
     renderView() {
@@ -59,7 +49,6 @@ class Panel extends Component{
     	}
     }
 
-
     render(){
         let icon = this.icons['down'];
 
@@ -67,30 +56,22 @@ class Panel extends Component{
             icon = this.icons['up'];   //Step 4
         }
 
-        //Step 5
         return ( 
-        <TouchableHighlight 
-                         
-                        onPress={this.toggle.bind(this)}
-                        underlayColor="#f1f1f1">
+        <TouchableHighlight onPress={this.toggle.bind(this)} underlayColor="#f1f1f1">
             <View style={[styles.container,{height: this.state.animation}]}>
                 <View style={styles.titleContainer} onLayout={this._setMinHeight.bind(this)}>
                     <Text style={styles.title}>{this.state.title}</Text>
-                        <Image
-                            style={styles.buttonImage}
-                            source={icon}
-                        />
+                        <Image style={styles.buttonImage} source={icon}/>
                 </View>
                 {this.renderView()}
-
             </View>
             </TouchableHighlight>
         );
     }
 }
 
-var styles = StyleSheet.create({
-    container   : {
+var styles = ({
+    container: {
         backgroundColor: 'white',
         margin:10,
         overflow:'hidden'
@@ -98,21 +79,20 @@ var styles = StyleSheet.create({
     titleContainer : {
         flexDirection: 'row'
     },
-    title       : {
-        flex    : 1,
-        padding : 10,
-        color   :'#2a2f43',
+    title: {
+        flex: 1,
+        padding: 10,
+        color:'#2a2f43',
         fontSize: 25,
         fontFamily: "GillSans"
     },
-    buttonImage : {
-        width   : 30,
-        height  : 25
+    buttonImage: {
+        width: 30,
+        height: 25
     },
-    body        : {
-        padding     : 10,
-        paddingTop  : 0,
-        
+    body: {
+        padding: 10,
+        paddingTop: 0
     }
 });
 

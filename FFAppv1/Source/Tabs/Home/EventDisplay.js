@@ -1,17 +1,15 @@
 import React from 'react'
-import {StyleSheet, Text, View, TouchableOpacity, Button, Linking} from 'react-native'
+import {StyleSheet, Text, View, Button, Linking} from 'react-native'
 import {connect} from 'react-redux';
-import {Card, CardSection, Confirm, EventButton} from '../../Components/Common'
+import {EventButton} from '../../Components/Common'
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const renderAddToCalender = (title, date, time, location,
-                            alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe ) => {
-
+const renderAddToCalender = (title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe ) => {
       return (
         <View style = {styles.buttonCont}>
           <Icon.Button justifyContent = "center" name = "ios-alarm" backgroundColor = "#4AB312" color = "white" 
-                       onPress={ () => { remindMe(title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min)} }>
+                       onPress={ () => { remindMe(title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min)}}>
              Remind me!
           </Icon.Button>
         </View>
@@ -23,14 +21,13 @@ const renderButton = (link) => {
       <EventButton onPress={ () => Linking.openURL(link) }>
         Learn more
       </EventButton>
-   )
+   );
 }
 
 const EventDisplay = ({title, location, date, time, link,
                       alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe}) => {
 
   return (
-    
         <View style = {styles.container}>
           <View style = {styles.titleContainer}>
             {title!==null ? <Text style = {styles.titleStyle}>{title}</Text> : <Text style = {styles.titleStyle}>The title is not specified</Text>}
@@ -44,16 +41,14 @@ const EventDisplay = ({title, location, date, time, link,
           </View>
           <View flexDirection = "row" marginBottom = {10}>
             <View>
-              {renderAddToCalender(title, date, time, location, 
-                          alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe)}
+              {renderAddToCalender(title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min, remindMe)}
             </View>
             <View width = {5}/>
             <View justifyContent = "center">
               {link!=="" ? renderButton(link) : <Text></Text>}
             </View>
           </View>
-        </View>
-      
+        </View> 
   )
 }
 
@@ -63,8 +58,6 @@ const styles = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomWidth: StyleSheet.hairlineWidth
-    //justifyContent: 'center'
-    //backgroundColor: "#"
   },
   titleContainer:{
     alignItems: 'center'

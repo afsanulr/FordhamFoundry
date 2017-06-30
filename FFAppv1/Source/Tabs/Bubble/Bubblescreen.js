@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import {ScrollView, Text, View, StyleSheet, Image, Button, TouchableOpacity, Linking} from 'react-native';
+import {ScrollView, Text, View, Image, TouchableOpacity, Linking} from 'react-native';
 
 import ViewContainer from '../../Components/Common/ViewContainer';
 import Panel from '../../Components/Common/Panel';
 import PanelToView from '../../Components/Common/PanelToView';
 import MediaButtons from '../../Components/Common/MediaButtons';
-import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import IonIcon from 'react-native-vector-icons/Ionicons'; 
 import ImageSlider from 'react-native-image-slider';
 
 class HomeScreen extends Component {
@@ -29,6 +27,7 @@ class HomeScreen extends Component {
 					require('../../../Images/slide1.png'),
 					require('../../../Images/slide3.png'),
 					require('../../../Images/slide4.png')]
+
 		this.setState({images: array})
 	}
 
@@ -102,10 +101,9 @@ class HomeScreen extends Component {
 	}
 }
 
-const styles = StyleSheet.create ({
+const styles = ({
 	container: {
-		flex : 1,
-	   	//backgroundColor : '#f4f7f9'
+		flex : 1
 	},
 	addressText: {
 		marginTop: 20,
@@ -142,8 +140,6 @@ const styles = StyleSheet.create ({
 		fontSize: 11,
 		textAlign: 'center'
 	}
- 
- 
 });
  
 

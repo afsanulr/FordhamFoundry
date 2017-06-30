@@ -1,10 +1,9 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image, TouchableOpacity, Linking} from 'react-native';
-import MatIcon from 'react-native-vector-icons/MaterialIcons';
+import {Text, TouchableOpacity} from 'react-native';
 
 import FFBusPanel from './FFBusPanel';
 
-const styles = StyleSheet.create({
+const styles = ({
   descStyle: {
     fontSize: 16,
     fontFamily: 'GillSans',

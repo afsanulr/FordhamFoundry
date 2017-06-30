@@ -1,33 +1,29 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Text, View, ScrollView, Keyboard, TouchableWithoutFeedback, KeyboardAvoidingView} from 'react-native';
+import {View, ScrollView} from 'react-native';
 import firebase from 'firebase';
 import {jobUpdate, jobCreate, fetchJobs} from '../../Actions';
-import {Card, CardSection, Button, Confirm} from '../../Components/Common';
+import {Button} from '../../Components/Common';
 import JobForm from './JobForm';
 
 class JobCreate extends Component {
   constructor(props){
     super(props)
-    this.state = {
-      showModal: false
-    }
-
-
+      this.state = {
+        showModal: false
+      }
   }
 
   renderModal(){
     this.setState({showModal: true})
   }
-  /*onReturn(){
-    this.setState({showModal: false})
-  }*/
 
   onButtonPress(){
     const {name, contact, description, title, link, user, loggedIn} = this.props
 
     if(loggedIn){
       const {currentUser} = firebase.auth()
+
       this.props.jobCreate({
         name: name || 'No Name Provided', 
         contact: contact || '', 
@@ -36,11 +32,11 @@ class JobCreate extends Component {
         link: link || '',
         user: currentUser.uid || null,
       })
+
       alert ('Job Was Created!')
       
-    }else{
+    } else{
       alert('You Need To Log In To Post Jobs!')
-      //this.setState({showModal: true})
     }
 }
 
@@ -48,10 +44,8 @@ class JobCreate extends Component {
     this.props.fetchJobs()
   }
 
-
   render(){
     return (
-      
         <ScrollView flex = {1} backgroundColor = "white">
         <JobForm {...this.props}/>
         <View alignItems = "center">
@@ -59,9 +53,7 @@ class JobCreate extends Component {
             Create
           </Button>
         </View>
-        
         </ScrollView>
-      
     )
   }
 }

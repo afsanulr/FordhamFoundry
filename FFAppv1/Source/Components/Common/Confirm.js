@@ -1,10 +1,9 @@
 import React from 'react'
-import {KeyboardAvoidingView, Text, Modal, View, TouchableWithoutFeedback} from 'react-native'
+import {KeyboardAvoidingView, Modal, View, TouchableWithoutFeedback} from 'react-native'
 import {CardSection} from './CardSection'
-import {Button} from './Button'
 
 const Confirm = ({children,visible,onReturn, position}) => {
-  const {containerStyle,textStyle,cardSectionStyle} = styles
+  const {containerStyle,textStyle} = styles
   return(
     <KeyboardAvoidingView behavior = {'position'}>
     <Modal
@@ -18,7 +17,7 @@ const Confirm = ({children,visible,onReturn, position}) => {
     
       <View style={containerStyle}>
       
-        <CardSection style={cardSectionStyle}>
+        <CardSection>
         <TouchableWithoutFeedback>
           <View style={textStyle}>
             {children}
@@ -36,9 +35,6 @@ const Confirm = ({children,visible,onReturn, position}) => {
 }
 
 const styles={
-  cardSectionStyle:{
-    //justifyContent:'center'
-  },
   textStyle:{
     flex:1,
   },

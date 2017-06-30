@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Text, View, ListView, ScrollView} from 'react-native';
-import { readUpdates } from '../../Actions';
-import { connect } from 'react-redux';
+import {View, ScrollView} from 'react-native';
+import {readUpdates} from '../../Actions';
+import {connect} from 'react-redux';
 
 import {UpdateDisplay} from './UpdateDisplay';
-import ViewContainer from '../../Components/Common/ViewContainer';
 
 class UpdateList extends Component {
 	constructor(props) {
@@ -25,23 +24,16 @@ class UpdateList extends Component {
 		for(key in updates){
 			const temp = key
 
-			console.log(" render updates")
-			console.log(updates[key].business)
-			console.log(updates[key].update)
-			console.log(updates[key].date)
 			list.unshift(
 				<UpdateDisplay
 					key = {key}
-					title = {updates[key].business}
-					update = {updates[key].update}
-					date = {updates[key].date}
+					title = {updates[key].business} //updates[key].business is the name i.e Pathos or Ventir
+					update = {updates[key].update} //updates[key].update is the description/announcment
+					date = {updates[key].date} //updates[key].date is the date it was posted
 					link = {updates[key].link}
 				/>
 			)
 
-			//updates[key].business is the name i.e Pathos or Ventir
-			//updates[key].description is the description/announcment
-			//updates[key].date is the date it was posted
 			//style like mentor page, events too?
 		}
 		return <View>{list}</View>

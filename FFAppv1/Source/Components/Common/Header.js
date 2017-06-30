@@ -1,18 +1,16 @@
  //Header at top of screen
 //When header is called by other functions, its passed a props object param
 //props has an attribute called headerText, whoever calls it (App) can set this to whatever it wants
-
-//Import
 import React from 'react'
 import {Text, View} from 'react-native'
 
 //Create Header component
 const Header = (props) => {
-  const { textStyle, viewStyle } = styles
+  const {textStyle, viewStyle} = styles
 
   return ( 
     <View style = {viewStyle}>
-      <Text style = {textStyle}> {props.headerText} </Text>
+      <Text style = {textStyle}>{props.headerText}</Text>
     </View>
   )
 }
@@ -26,7 +24,7 @@ const styles = {
     height: 60,
     paddingTop: 15,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
+    shadowOffset: {width: 0, height: 2},
     shadowOpacity: 0.7,
     elevation: 2,
     position: 'relative'
