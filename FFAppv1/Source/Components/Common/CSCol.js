@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 
 const CSCol = (props) => {
   return (
@@ -11,12 +11,12 @@ const CSCol = (props) => {
 
 const styles = {
   containerStyle: {
-    borderBottomWidth: 2,
+    borderBottomWidth: StyleSheet.hairlineWidth,
     padding: 8,
     backgroundColor: '#fff',
     justifyContent: 'space-around',
     flexDirection: 'column',
-    borderColor: 'black',
+    borderColor: '#8E8E8E',
     position: 'relative',
   }
 };

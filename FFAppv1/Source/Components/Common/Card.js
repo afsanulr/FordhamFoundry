@@ -1,8 +1,10 @@
 import React from 'react';
 import {View} from 'react-native';
 
+//Rounded container for other components or tags
 const Card = (props) => {
   return (
+    //any component or tag inside Card will be displayed
     <View style={styles.containerStyle}>
       {props.children}
     </View>
@@ -10,6 +12,7 @@ const Card = (props) => {
 };
 
 const styles = {
+  //styling for Card
   containerStyle: {
     borderWidth: 1,
     borderRadius: 5,

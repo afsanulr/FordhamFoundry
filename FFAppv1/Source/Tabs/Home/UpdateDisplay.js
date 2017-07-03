@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, Text, View, Image} from 'react-native'
+import {StyleSheet, Text, View, Image, Linking} from 'react-native'
 import {connect} from 'react-redux';
 import {UpdateButton} from '../../Components/Common'
 
@@ -85,7 +85,8 @@ const styles = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
-    borderBottomWidth: StyleSheet.hairlineWidth
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: '#8E8E8E'
   },
   buttonCont: {
     height: 45,

@@ -1,11 +1,12 @@
 import React from 'react'
-import {KeyboardAvoidingView, Modal, View, TouchableWithoutFeedback} from 'react-native'
+import {Modal, View, Button, TouchableWithoutFeedback, TouchableOpacity} from 'react-native'
 import {CardSection} from './CardSection'
+
+import IonIcon from 'react-native-vector-icons/Ionicons';
 
 const Confirm = ({children,visible,onReturn, position}) => {
   const {containerStyle,textStyle} = styles
   return(
-    <KeyboardAvoidingView behavior = {'position'}>
     <Modal
       animationType="fade"
       onRequestClose={ ()=>{} }
@@ -16,33 +17,46 @@ const Confirm = ({children,visible,onReturn, position}) => {
     <TouchableWithoutFeedback onPress = {onReturn}>
     
       <View style={containerStyle}>
-      
         <CardSection>
         <TouchableWithoutFeedback>
+          <View>
+          <View style = {styles.closeButtonCont}>
+            <TouchableOpacity onPress = {onReturn}>
+              <IonIcon name = "ios-close" size = {24}/>
+            </TouchableOpacity>
+          </View>
+        
           <View style={textStyle}>
             {children}
           </View>
-          </TouchableWithoutFeedback>
+          </View>
+        </TouchableWithoutFeedback>
         </CardSection>
       </View>
-      
-
-      </TouchableWithoutFeedback>
+    </TouchableWithoutFeedback>
     </Modal>
-    </KeyboardAvoidingView>
-
   )
 }
 
 const styles={
   textStyle:{
-    flex:1,
+    //flex:1,
+    flexDirection: 'row',
+    paddingLeft: 10,
+    paddingBottom: 10,
+    paddingRight: 10
   },
   containerStyle:{
     backgroundColor: 'rgba(0,0,0,0.75)',
-    position:'relative',
+    //position:'relative',
     flex:1,
-    justifyContent:'center'
+    justifyContent:'center',
+    flexDirection: 'column'
+  },
+  closeButtonCont: {
+    alignItems: "flex-start",
+    paddingLeft: 10,
+    paddingTop: 5
   }
 }
 

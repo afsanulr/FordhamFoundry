@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, Linking, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 
-import {LinkButton, DeleteButton, ClickEmail} from '../../Components/Common';
+import {LinkButton, DeleteButton, ClickMe} from '../../Components/Common';
 
 const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {  
   
@@ -13,7 +13,7 @@ const renderButton = (canDelete, jobKey, jobDelete, onReturn, visible) => {
 
   if(canDelete)
     return(
-      <View alignItems = "center" borderTopWidth = {StyleSheet.hairlineWidth}>
+      <View marginTop = {10} alignItems = "center" borderTopWidth = {StyleSheet.hairlineWidth}>
         <DeleteButton onPress={() => {closeModal(jobKey)}}>
           Delete
         </DeleteButton>
@@ -33,7 +33,10 @@ const showLinkButton = (jobBoard, jobKey) =>
     }
     else {
       return (
+        <View>
+        <View height = {15}/>
         <LinkButton jobBoard = {jobBoard} jobKey = {jobKey}>Learn more</LinkButton>
+        </View>
       )
   }
 }
@@ -50,11 +53,11 @@ const showEmail = (jobBoard, jobKey) =>
     }
     else {
       return (
-        <ClickEmail onPress = {() => Linking.openURL('mailto:{`${jobBoard[jobKey].contact`}')}>
+        <ClickMe onPress = {() => Linking.openURL(`mailto:${jobBoard[jobKey].contact}`)}>
         <Text style = {styles.linkText}>
         {`${jobBoard[jobKey].contact}`}
         </Text>
-        </ClickEmail>
+        </ClickMe>
       )
   }
 }
@@ -87,12 +90,10 @@ const JobDisplay = ({jobBoard, jobKey, canDelete, jobDelete, onReturn, visible})
 const styles = {
   titleandname: {
     borderBottomWidth: StyleSheet.hairlineWidth,
-    paddingBottom: 10,
-    marginBottom: 10
+    marginBottom: 5
   },
   contactCont: {
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: 10
   },
   titleStyle: {
     fontSize: 18,
@@ -111,7 +112,7 @@ const styles = {
   },
   linkText: {
     color: 'blue',
-    fontSize: 12
+    fontSize: 14
   }
 }
 
