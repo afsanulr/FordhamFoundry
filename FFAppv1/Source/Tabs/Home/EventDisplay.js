@@ -57,7 +57,8 @@ const styles = StyleSheet.create ({
     padding: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    borderBottomWidth: StyleSheet.hairlineWidth
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderColor: '#8E8E8E'
   },
   titleContainer:{
     alignItems: 'center'

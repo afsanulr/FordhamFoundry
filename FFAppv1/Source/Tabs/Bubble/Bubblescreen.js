@@ -5,6 +5,8 @@ import ViewContainer from '../../Components/Common/ViewContainer';
 import Panel from '../../Components/Common/Panel';
 import PanelToView from '../../Components/Common/PanelToView';
 import MediaButtons from '../../Components/Common/MediaButtons';
+import {ClickMe} from '../../Components/Common';
+
 import ImageSlider from 'react-native-image-slider';
 
 class HomeScreen extends Component {
@@ -62,32 +64,32 @@ class HomeScreen extends Component {
 			<PanelToView title = "Foundry Businesses" wayto = {this.props.navigation}/>
 			<Panel title = "Business Partners">
 				<View style = {styles.businessP}>
-				<TouchableOpacity onPress = {() => Linking.openURL('https://group.bnpparibas/en/group/corporate-social-responsibility')}>
+				<ClickMe onPress = {() => Linking.openURL('https://group.bnpparibas/en/group/corporate-social-responsibility')}>
 				<Image
 					source = {require('../../../Images/bnp-paribas.png')}
 					style = {{height:40, width: 135}}
 				/>
-				</TouchableOpacity>
-				<TouchableOpacity onPress = {() => Linking.openURL('http://thecenter.nasdaq.org')}>
+				</ClickMe>
+				<ClickMe onPress = {() => Linking.openURL('http://thecenter.nasdaq.org')}>
 				<Image
 					source = {require('../../../Images/nasdaq.png')}
 					style = {{height:40, width: 135}}
 				/>
-				</TouchableOpacity>
+				</ClickMe>
 				</View>
 				<View style = {styles.businessP}>
-				<TouchableOpacity onPress = {() => Linking.openURL('https://www1.nyc.gov/nycbusiness/topicpage/support-for-businesses#topic7')}>
+				<ClickMe onPress = {() => Linking.openURL('https://www1.nyc.gov/nycbusiness/topicpage/support-for-businesses#topic7')}>
 				<Image
 					source = {require('../../../Images/nycbusiness.png')}
 					style = {{height:40, width: 135}}
 				/>
-				</TouchableOpacity>
-				<TouchableOpacity onPress = {() => Linking.openURL('https://www.fordham.edu/info/23746/social_innovation_collaboratory')}>
+				</ClickMe>
+				<ClickMe onPress = {() => Linking.openURL('https://www.fordham.edu/info/23746/social_innovation_collaboratory')}>
 				<Image
 					source = {require('../../../Images/socialc.png')}
 					style = {{height:15, width: 130}}
 				/>
-				</TouchableOpacity>
+				</ClickMe>
 				</View>
 			</Panel>
 			<View alignItems = 'center' justifyContent = 'center'>
