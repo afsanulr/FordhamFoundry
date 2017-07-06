@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {View, ScrollView} from 'react-native';
 import {readUpdates} from '../../Actions';
 import {connect} from 'react-redux';
-
+import {Spinner} from '../../Components/Common';
 import {UpdateDisplay} from './UpdateDisplay';
 
 class UpdateList extends Component {
@@ -41,6 +41,9 @@ class UpdateList extends Component {
 	
 	render () {
 		console.log(this.props.updates)
+		if (this.props.loading){
+			return <Spinner size="large"/>
+		}
 		return (
 				<ScrollView marginTop = {10}>{this.renderUpdates()}</ScrollView>
 		)
@@ -48,8 +51,8 @@ class UpdateList extends Component {
 }
 
 const mapStateToProps = state => {
-	const { updates } = state.updateList
-	return { updates }
+	const { updates,loading } = state.updateList
+	return { updates,loading }
 }
 
 export default connect(mapStateToProps, { readUpdates })(UpdateList)

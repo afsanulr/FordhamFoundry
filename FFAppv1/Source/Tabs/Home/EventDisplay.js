@@ -9,7 +9,7 @@ const renderAddToCalender = (title, date, time, location, alarm_year, alarm_mont
       return (
         <View style = {styles.buttonCont}>
           <Icon.Button justifyContent = "center" name = "ios-alarm" backgroundColor = "#4AB312" color = "white" 
-                       onPress={ () => { remindMe(title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min)}}>
+                       onPress={ () => { remindMe(title, date, time, location, alarm_year, alarm_month, alarm_day, alarm_hour, alarm_min), alert('You Will Be Notified!')}}>
              Remind me!
           </Icon.Button>
         </View>
