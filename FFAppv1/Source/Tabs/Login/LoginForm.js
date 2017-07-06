@@ -23,18 +23,30 @@ class LoginForm extends Component{
     const {email, password} = this.props
     this.props.newUser({email: email || '', password: password || ''})
   }
-
+  //else return?
   renderButton(){
     if(this.props.loading){
-      return <Spinner size="large"/>
+      return (<Spinner size="large"/>)
     }
+    else {
     return (
-      <View alignItems = "center" marginBottom = {4}>
+      <View alignItems = "center">
       <Button onPress={this.onButtonPress.bind(this)}>
          Login     
       </Button>
       </View>
-    )
+    )}
+  }
+
+  renderErrorMess() {
+    if(this.props.loading === false)
+    {
+      return (
+        <Text style = {styles.errorTextStyle}> 
+        {this.props.error}
+        </Text>
+        )
+    }
   }
 
   render(){
@@ -76,9 +88,7 @@ class LoginForm extends Component{
           value = {this.props.password}
         />
 
-        <Text style = {styles.errorTextStyle}> 
-        {this.props.error}
-        </Text>
+        {this.renderErrorMess()}
 
         {this.renderButton()}
         
@@ -134,9 +144,10 @@ const styles = ({
     paddingHorizontal: 10
   },
   errorTextStyle:{
-    fontSize:20,
+    fontSize:15,
     alignSelf:'center',
-    color:'red'
+    color:'red',
+
   }
 });
 

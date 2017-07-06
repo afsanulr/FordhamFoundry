@@ -3,6 +3,7 @@ import {Text, View, ScrollView} from 'react-native';
 import {connect} from 'react-redux'
 import {readEvents, remindMe} from '../../Actions'
 import {EventDisplay} from './EventDisplay'
+import {Spinner} from '../../Components/Common';
 
 class EventList extends Component {
 	constructor(props) {
@@ -19,8 +20,11 @@ class EventList extends Component {
 
 	renderEvents(){
 		events = this.props.events
-		
-		if(events === null){
+
+		if (this.props.loading){
+			return <Spinner size="large"/>
+		}
+		else if(events === null){
 			return <View alignItems = "center"><Text>No Upcoming Events!</Text></View>
 		}
 		else {list = []
@@ -55,8 +59,8 @@ class EventList extends Component {
 }
 
 const mapStateToProps = state =>{
-	const {events} = state.eventList
-	return {events}
+	const {events, loading} = state.eventList
+	return {events, loading}
 }
 
 export default connect(mapStateToProps, { readEvents, remindMe })(EventList)
